@@ -4,6 +4,14 @@ import { Component } from "@angular/core";
   selector: "app-root",
   templateUrl: `
     <app-courses></app-courses>
+
+    <button 
+      class="btn btn-primary"
+      [class.active]="isActive"
+      [class.disabled]="!isActive"
+      [style.backgroundColor]="isActive ? 'blue' : 'gray'">
+        Click me
+      </button>
     
     <h4>Pick a highlight color</h4>
     <div>
@@ -16,4 +24,5 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   color: string;
+  isActive = false;
 }
