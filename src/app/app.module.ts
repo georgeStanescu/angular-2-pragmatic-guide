@@ -7,10 +7,13 @@ import { AppComponent } from "./app.component";
 import { CoursesComponent } from "./course";
 import { CourseService } from "./course";
 
+import { HighlightDirective } from "./common";
+
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent
+    CoursesComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
