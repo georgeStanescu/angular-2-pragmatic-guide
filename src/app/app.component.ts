@@ -4,22 +4,20 @@ import { Component } from "@angular/core";
   selector: "app-root",
   templateUrl: `
     <app-courses></app-courses>
-
-    <button 
-      class="btn btn-primary"
-      [ngClass]="{'active': isActive, 'disabled': !isActive}"
-      [ngStyle]="{ 'backgroundColor': (isActive ? 'blue' : 'gray') }">Click me</button>
-    
-    <h4>Pick a highlight color</h4>
-    <div>
-      <input type="radio" name="colors" (click)="color='lightgreen'">Green
-      <input type="radio" name="colors" (click)="color='yellow'">Yellow
-      <input type="radio" name="colors" (click)="color='cyan'">Cyan
-    </div>
-    <p [appHighlight]="color">Highlight me!</p>
+    <div (click)="onDivClick()">
+      <button class="btn btn-primary" on-click='onClick($event)'>Click one</button>
+      <button class="btn btn-primary" (click)='onClick($event)'>Click two</button>
+    </div> 
   `
 })
 export class AppComponent {
-  color: string;
-  isActive = true;
+
+  onDivClick() {
+    event.stopPropagation();
+  }
+
+  onClick(event) {
+    event.stopPropagation();
+    console.log("Clicked", event);
+  }
 }
