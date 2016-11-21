@@ -18,6 +18,8 @@ import { VoterComponent } from './common';
 import { SummaryPipe } from "./common";
 import { PanelComponent } from "./common";
 
+import { ZippyComponent } from "./zippy";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { PanelComponent } from "./common";
     TweetComponent,
     PanelComponent,
     HighlightDirective,
-    SummaryPipe
+    SummaryPipe,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,
