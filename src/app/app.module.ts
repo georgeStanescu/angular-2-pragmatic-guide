@@ -11,6 +11,7 @@ import { CourseService } from "./course";
 import { HighlightDirective } from "./common";
 import { FavoriteComponent } from "./common";
 import { LikeComponent } from "./common";
+import { VoterComponent } from './common/voter.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LikeComponent } from "./common";
     CoursesComponent,
     FavoriteComponent,
     LikeComponent,
+    VoterComponent,
     HighlightDirective
   ],
   imports: [

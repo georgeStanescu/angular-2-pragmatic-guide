@@ -3,12 +3,12 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-root",
   template: `
-    <app-like [likes]="serverResponse.totalLikes" [isLiked]="serverResponse.isLiked"></app-like>
+    <app-voter [votes]="serverResponse.totalVotes" [userVote]="serverResponse.myVote"></app-voter>
   `
 })
 export class AppComponent {
   serverResponse = {
-    totalLikes: 10,
-    isLiked: false
+    totalVotes: 10,
+    myVote: 0
   };
 }
