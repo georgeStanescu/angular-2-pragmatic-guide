@@ -10,12 +10,14 @@ import { CourseService } from "./course";
 
 import { HighlightDirective } from "./common";
 import { FavoriteComponent } from "./common";
+import { LikeComponent } from "./common";
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
     FavoriteComponent,
+    LikeComponent,
     HighlightDirective
   ],
   imports: [

@@ -3,17 +3,12 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-root",
   template: `
-    <i class="glyphicon glyphicon-star"></i>
-    <app-favorite [isClicked]="serverResponse.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
+    <app-like [likes]="serverResponse.totalLikes" [isLiked]="serverResponse.isLiked"></app-like>
   `
 })
 export class AppComponent {
   serverResponse = {
-    title: "title",
-    isFavorite: true
+    totalLikes: 10,
+    isLiked: false
   };
-
-  onFavoriteChanged(event) {
-    console.log(event);
-  }
 }
