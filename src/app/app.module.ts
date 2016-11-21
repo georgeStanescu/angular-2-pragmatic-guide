@@ -20,6 +20,8 @@ import { PanelComponent } from "./common";
 
 import { ZippyComponent } from "./zippy";
 
+import { ContactFormComponent } from "./contact";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { ZippyComponent } from "./zippy";
     PanelComponent,
     HighlightDirective,
     SummaryPipe,
-    ZippyComponent
+    ZippyComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
