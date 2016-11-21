@@ -16,6 +16,7 @@ import { FavoriteComponent } from "./common";
 import { LikeComponent } from "./common";
 import { VoterComponent } from './common';
 import { SummaryPipe } from "./common";
+import { PanelComponent } from "./common";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SummaryPipe } from "./common";
     LikeComponent,
     VoterComponent,
     TweetComponent,
+    PanelComponent,
     HighlightDirective,
     SummaryPipe
   ],
