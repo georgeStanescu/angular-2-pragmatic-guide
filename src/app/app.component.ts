@@ -3,9 +3,12 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-root",
   templateUrl: `
-    <app-favorite></app-favorite>
+    <app-favorite [isClicked]="serverResponse.isFavorite"></app-favorite>
   `
 })
 export class AppComponent {
-  content: string = "Some content";
+  serverResponse = {
+    title: "title",
+    isFavorite: true
+  }
 }

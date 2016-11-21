@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-favorite',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     `
 })
 export class FavoriteComponent { 
-  isClicked: boolean = false;
+  @Input() isClicked: boolean = false;
 
   onElementClicked() {
     this.isClicked = !this.isClicked;
