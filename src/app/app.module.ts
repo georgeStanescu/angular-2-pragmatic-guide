@@ -8,6 +8,9 @@ import { AppComponent } from "./app.component";
 import { CoursesComponent } from "./course";
 import { CourseService } from "./course";
 
+import { TweetService } from "./tweet";
+import { TweetComponent } from "./tweet";
+
 import { HighlightDirective } from "./common";
 import { FavoriteComponent } from "./common";
 import { LikeComponent } from "./common";
@@ -20,6 +23,7 @@ import { VoterComponent } from './common/voter.component';
     FavoriteComponent,
     LikeComponent,
     VoterComponent,
+    TweetComponent,
     HighlightDirective
   ],
   imports: [
@@ -28,7 +32,7 @@ import { VoterComponent } from './common/voter.component';
     HttpModule,
     Ng2BootstrapModule
   ],
-  providers: [ CourseService ],
+  providers: [ CourseService, TweetService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
