@@ -14,7 +14,8 @@ import { TweetComponent } from "./tweet";
 import { HighlightDirective } from "./common";
 import { FavoriteComponent } from "./common";
 import { LikeComponent } from "./common";
-import { VoterComponent } from './common/voter.component';
+import { VoterComponent } from './common';
+import { SummaryPipe } from "./common";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VoterComponent } from './common/voter.component';
     LikeComponent,
     VoterComponent,
     TweetComponent,
-    HighlightDirective
+    HighlightDirective,
+    SummaryPipe
   ],
   imports: [
     BrowserModule,
