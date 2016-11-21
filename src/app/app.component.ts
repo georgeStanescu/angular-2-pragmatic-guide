@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "app-root",
-  templateUrl: `
+  template: `
+    <i class="glyphicon glyphicon-star"></i>
     <app-favorite [isClicked]="serverResponse.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
   `
 })
