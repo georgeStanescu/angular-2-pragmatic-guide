@@ -1,30 +1,27 @@
-import { Component } from "@angular/core";
-import {FormGroup, FormBuilder } from "@angular/forms";
-// import { Observable } from "rxjs/Rx";
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/filter';
+import { Component, OnInit } from "@angular/core";
+import { PostService } from "./post";
 
 @Component({
   selector: "app-root",
   template: `
-    <form [formGroup]="searchForm">
-      <input type="text" formControlName="searchControl">
-    </form>
-  `
+    <div *ngIf="isLoading">
+      <i class="fa fa-spinner fa-spin fa-3x"></i>
+    </div>
+  `,
+  providers: [PostService]
 })
-export class AppComponent {
-  searchForm: FormGroup;
+export class AppComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) {
-    this.searchForm = formBuilder.group({
-      searchControl: []
-    });
+  isLoading = true;
 
-    let searchControl = this.searchForm.get("searchControl");
+  constructor(private _postService: PostService) {
+  }
 
-    searchControl.valueChanges
-      .debounceTime(1000)
-      .subscribe(x => console.log(x));
+  ngOnInit() {
+    this._postService.getPosts()
+      .subscribe(posts => {
+        this.isLoading = false;
+        console.log(posts[0].title);
+      });
   }
 }
