@@ -5,12 +5,12 @@ import { HttpModule } from "@angular/http";
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from "./app.component";
-import { CoursesComponent } from "./course";
-import { CourseService } from "./course";
+import { AppComponent }       from "./app.component";
+import { CoursesComponent }   from "./course";
+import { CourseService }      from "./course";
 
-import { TweetService } from "./tweet";
-import { TweetComponent } from "./tweet";
+import { TweetService }       from "./tweet";
+import { TweetComponent }     from "./tweet";
 
 import { HighlightDirective } from "./common";
 import { FavoriteComponent } from "./common";
@@ -24,6 +24,9 @@ import { ZippyComponent } from "./zippy";
 import { ContactFormComponent } from "./contact";
 import { SignupFormComponent } from "./signup";
 import { GithubComponent } from "./github";
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { PreventUnsavedChangesGuard } from "./prevent-unsaved-changes.guard.service";
 
 @NgModule({
   declarations: [
@@ -49,7 +52,7 @@ import { GithubComponent } from "./github";
     Ng2BootstrapModule,
     AppRoutingModule
   ],
-  providers: [ CourseService, TweetService ],
+  providers: [ CourseService, TweetService, AuthService, AuthGuard, PreventUnsavedChangesGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

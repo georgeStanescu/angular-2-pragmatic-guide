@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component }        from '@angular/core';
+import { IFormComponent }   from "../iFormComponent";
 
 @Component({
   selector: 'app-contact-form',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
     <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.form)">
       <div class="form-group">
         <label for="firstName">FirstName</label>
-        <input ngModel name="firstNameControl" #firstNameVar="ngModel" 
+        <input [(ngModel)]="firstName" name="firstNameControl" #firstNameVar="ngModel" 
           (change)="log(firstNameVar)" id="firstName" type="text" class="form-control"
           required minlength="3">
         <div *ngIf="firstNameVar.touched && firstNameVar.errors">
@@ -20,7 +21,7 @@ import { Component } from '@angular/core';
       </div>
       <div class="form-group">
         <label for="comment">Comment</label>
-        <textarea ngModel name="commentControl" #commentVar="ngModel" 
+        <textarea [(ngModel)]="comment" name="commentControl" #commentVar="ngModel" 
           id="comment" cols="30" rows="10" class="form-control" 
           required>
         </textarea>
@@ -35,8 +36,17 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements IFormComponent {
+  firstName: string = "";
+  comment: string = "";
+
   constructor() { }
+
+  hasUnsavedChanges(): boolean {
+    if (this.firstName || this.comment) {
+      return true;
+    }
+  }
 
   log(control) {
     console.log(control);

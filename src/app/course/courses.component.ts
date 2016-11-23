@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CourseService } from "./course.service";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: "app-courses",
@@ -19,8 +20,11 @@ export class CoursesComponent implements OnInit {
 
   courses: any[] = [];
 
-  constructor(private courseService: CourseService) {
+  constructor(private courseService: CourseService, authService: AuthService) {
     this.courses = courseService.getCourses();
+
+    // normally this has to be done on a loginForm Component
+    authService.login("username", "password");
   }
 
   ngOnInit() {
