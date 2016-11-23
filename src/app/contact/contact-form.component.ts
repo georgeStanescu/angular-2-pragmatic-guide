@@ -1,5 +1,6 @@
 import { Component }        from '@angular/core';
 import { IFormComponent }   from "../iFormComponent";
+import { Router }           from "@angular/router";
 
 @Component({
   selector: 'app-contact-form',
@@ -40,7 +41,7 @@ export class ContactFormComponent implements IFormComponent {
   firstName: string = "";
   comment: string = "";
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   hasUnsavedChanges(): boolean {
     if (this.firstName || this.comment) {
@@ -54,5 +55,10 @@ export class ContactFormComponent implements IFormComponent {
 
   onSubmit(form) {
     console.log(form);
+    
+    this.firstName = "";
+    this.comment = "";
+
+    this._router.navigate(['/courses']);
   }
 }
