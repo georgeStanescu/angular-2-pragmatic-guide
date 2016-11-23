@@ -22,6 +22,7 @@ import { ZippyComponent } from "./zippy";
 
 import { ContactFormComponent } from "./contact";
 import { SignupFormComponent } from "./signup";
+import { GithubComponent } from "./github";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SignupFormComponent } from "./signup";
     SummaryPipe,
     ZippyComponent,
     ContactFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    GithubComponent
   ],
   imports: [
     BrowserModule,
