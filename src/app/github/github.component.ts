@@ -1,7 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { GithubService } from "./github.service";
 import { GithubUser } from "./github-user";
+import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
+import { Subscription }   from 'rxjs/Subscription';
 import "rxjs/add/observable/forkJoin";
 import "rxjs/add/operator/map";
 
@@ -39,15 +41,23 @@ import "rxjs/add/operator/map";
   `],
   providers: [GithubService]
 })
-export class GithubComponent implements OnInit {
+export class GithubComponent implements OnInit, OnDestroy {
   isLoading = true;
   githubUser: GithubUser;
   username: string = "octocat";
+  private _subscription: Subscription;
 
-  constructor(private _githubService: GithubService) {
+  constructor(private _githubService: GithubService, private _route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    // easy way, but not recommended when reusing the same component multiple times(as ngOnInit is called ony once)
+    // this.username = this._route.snapshot.params["users"];
+
+    this._subscription = this._route.params.subscribe((params) => {
+      this.username = params['user'];
+    });
+
     Observable
       .forkJoin(
         this._githubService.getUser(this.username),
@@ -62,5 +72,10 @@ export class GithubComponent implements OnInit {
           this.isLoading = false;
         }
       );
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this._subscription.unsubscribe();
   }
 }

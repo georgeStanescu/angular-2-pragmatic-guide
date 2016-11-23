@@ -5,7 +5,20 @@ export class CourseService {
 
   constructor() { }
 
-  getCourses(): string[] {
-    return ["Course 1", "Course 2", "Course 3"];
+  getCourses(): any[] {
+    return [
+      {
+        name: "Course 1",
+        author: "octocat"
+      },
+      {
+        name: "Course 2",
+        author: "DeborahK"
+      },
+      {
+        name: "Course 3",
+        author: "johnpapa"
+      }
+    ];
   }
 }

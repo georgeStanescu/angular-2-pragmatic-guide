@@ -9,7 +9,7 @@ import { CourseService } from "./course.service";
 
     <ul>
       <li *ngFor="let course of courses">
-        {{ course }}
+        {{ course.name }} by <a [routerLink]="['/github', course.author]">{{ course.author | uppercase }}</a>
       </li>
     </ul>
   `
@@ -17,7 +17,7 @@ import { CourseService } from "./course.service";
 export class CoursesComponent implements OnInit {
   title: string = "Courses page";
 
-  courses: string[] = [];
+  courses: any[] = [];
 
   constructor(private courseService: CourseService) {
     this.courses = courseService.getCourses();

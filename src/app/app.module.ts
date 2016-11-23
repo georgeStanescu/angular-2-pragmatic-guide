@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from "./app.component";
 import { CoursesComponent } from "./course";
@@ -45,7 +46,8 @@ import { GithubComponent } from "./github";
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    Ng2BootstrapModule
+    Ng2BootstrapModule,
+    AppRoutingModule
   ],
   providers: [ CourseService, TweetService ],
   bootstrap: [AppComponent]
