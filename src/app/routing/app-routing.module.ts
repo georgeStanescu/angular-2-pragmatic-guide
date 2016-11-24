@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-import { CoursesComponent } from "./course";
-import { ContactFormComponent } from "./contact";
-import { TweetComponent } from "./tweet";
-import { GithubComponent } from "./github";
+import { CoursesComponent } from "../course";
+import { ContactFormComponent } from "../contact";
+import { TweetComponent } from "../tweet";
+import { GithubComponent } from "../github";
 import { AuthGuard } from "./auth-guard.service";
 import { PreventUnsavedChangesGuard } from "./prevent-unsaved-changes.guard.service";
 
@@ -27,6 +27,7 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [ AuthGuard, PreventUnsavedChangesGuard ]
 })
 export class AppRoutingModule {}

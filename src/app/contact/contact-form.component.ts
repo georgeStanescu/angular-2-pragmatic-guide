@@ -1,5 +1,5 @@
 import { Component }        from '@angular/core';
-import { IFormComponent }   from "../iFormComponent";
+import { IFormComponent }   from "../routing/iFormComponent";
 import { Router }           from "@angular/router";
 
 @Component({
